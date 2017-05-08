@@ -79,17 +79,14 @@ public class PageConnexionController {
 			    		
 			    		// CHECK THE PASSWORD
 			    		
-			    		// password from the database
-			    		result = state.executeQuery("SELECT motDePasse FROM employe WHERE nom = '" + databaseName + "'");
+			    		result = state.executeQuery("SELECT motDePasse FROM employe WHERE nom = 'DERRIEN'");
 			    		result.next();
 			    		databasePassWord = result.getString("motDePasse");
 			    		System.out.println("databasePassWord = " + databasePassWord);
 			    		
-			    		// password from the user
 			    		inputPassWord = passWord.getText();
 			    		System.out.println("inputPassWord = " + inputPassWord);
 			    		
-			    		// compare the two passwords
 			    		if(databasePassWord.equals(inputPassWord)){
 			    			System.out.println("Password correct");
 			    			
