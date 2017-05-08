@@ -67,7 +67,7 @@ public class PageConnexionController {
 			    	databaseName = result.getString("nom");
 			    	System.out.println("databaseName = " + databaseName);
 			    	
-			    	if(databaseName.equals(inputName)){
+			    	if(databaseName == inputName){
 			    		System.out.println("name saved into the database");
 			    	}else{
 			    		System.out.println("name not saved");

@@ -53,7 +53,7 @@ public class PageConnexionController {
 		// READ THE INPUT DATAS
 		
 		inputName = name.getText();
-		System.out.println("inputName = " + inputName);
+		System.out.println(inputName);
 		
 		
 		// ASK THE DATABASE
@@ -65,21 +65,16 @@ public class PageConnexionController {
 			    while (result.next())
 			    {
 			    	databaseName = result.getString("nom");
-			    	System.out.println("databaseName = " + databaseName);
-			    	
-			    	if(databaseName.equals(inputName)){
-			    		System.out.println("name saved into the database");
-			    	}else{
-			    		System.out.println("name not saved");
-			    	}
-			    	
+			    	System.out.println(databaseName);			    	
 			    }		
 		}
 		catch (SQLException ex) {System.err.println(ex.getMessage());}
 		
 		// COMPARE INPUT DATAS WITH THE DATABASE DATAS
-
-
+		
+    	if(databaseName == inputName){
+    		System.out.println("name seved into the database");
+    	}
 	}
 
 }

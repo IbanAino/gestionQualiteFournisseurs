@@ -45,15 +45,9 @@ public class PageConnexionController {
 	private void buttonConnection(ActionEvent event){
 		System.out.println("buttonConnexion clicked");
 		
-		// variables
-		
-		String databaseName = null;
-		String inputName = null;
-		
 		// READ THE INPUT DATAS
-		
-		inputName = name.getText();
-		System.out.println("inputName = " + inputName);
+		System.out.println(name.getText());
+
 		
 		
 		// ASK THE DATABASE
@@ -64,22 +58,18 @@ public class PageConnexionController {
 		    ResultSet result = state.executeQuery("SELECT * FROM employe");// L'objet ResultSet contient le résultat de la requête SQL
 			    while (result.next())
 			    {
-			    	databaseName = result.getString("nom");
-			    	System.out.println("databaseName = " + databaseName);
+			    	String databaseName = result.getString("nom");
+			    	System.out.println(databaseName);
 			    	
-			    	if(databaseName.equals(inputName)){
-			    		System.out.println("name saved into the database");
-			    	}else{
-			    		System.out.println("name not saved");
+			    	if(/*databaseName == "LEFUR"*/true){
+			    		System.out.println("name seved into the database");
 			    	}
-			    	
 			    }		
 		}
 		catch (SQLException ex) {System.err.println(ex.getMessage());}
 		
 		// COMPARE INPUT DATAS WITH THE DATABASE DATAS
-
-
+		
 	}
 
 }
