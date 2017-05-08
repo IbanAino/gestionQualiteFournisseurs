@@ -82,10 +82,10 @@ public class PageConnexionController {
 			    		result = state.executeQuery("SELECT motDePasse FROM employe");
 			    		result.next();
 			    		databasePassWord = result.getString("motDePasse");
-			    		System.out.println("databasePassWord = " + databasePassWord);
+			    		System.out.println(databasePassWord);
 			    		
 			    		inputPassWord = passWord.getText();
-			    		System.out.println("inputPassWord = " + inputPassWord);
+			    		System.out.println(inputPassWord);
 			    		
 			    		if(databasePassWord.equals(inputPassWord)){
 			    			System.out.println("Password correct");

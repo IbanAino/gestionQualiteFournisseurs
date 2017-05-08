@@ -10,7 +10,6 @@ import com.mysql.jdbc.ResultSetMetaData;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 public class PageConnexionController {
@@ -18,7 +17,6 @@ public class PageConnexionController {
 	// ATTRIBUTS
 	Connection conn;
 	@FXML private TextField name;
-	@FXML private PasswordField passWord;
 	
 	// CONSTRUCTOR
 	public PageConnexionController(){
@@ -52,8 +50,6 @@ public class PageConnexionController {
 		
 		String databaseName = null;
 		String inputName = null;
-		String databasePassWord = null;
-		String inputPassWord = null;
 		
 		// READ THE INPUT DATAS
 		
@@ -76,22 +72,12 @@ public class PageConnexionController {
 			    	
 			    	if(databaseName.equals(inputName)){
 			    		System.out.println("name saved into the database");
-			    		
 			    		// CHECK THE PASSWORD
-			    		
 			    		result = state.executeQuery("SELECT motDePasse FROM employe");
+			    		//while (result.next()){
 			    		result.next();
-			    		databasePassWord = result.getString("motDePasse");
-			    		System.out.println("databasePassWord = " + databasePassWord);
-			    		
-			    		inputPassWord = passWord.getText();
-			    		System.out.println("inputPassWord = " + inputPassWord);
-			    		
-			    		if(databasePassWord.equals(inputPassWord)){
-			    			System.out.println("Password correct");
-			    		}else{
-			    			System.out.println("Wrong password");
-			    		}
+			    			System.out.println(result.getString("motDePasse"));
+			    		//}
 			    	
 			    		break;// exit the while loop
 			    	}else{
