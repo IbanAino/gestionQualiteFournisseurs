@@ -7,7 +7,6 @@ import com.mysql.jdbc.Connection;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.TextField;
 
 public class PageLogisticienController {
 	
@@ -15,13 +14,6 @@ public class PageLogisticienController {
 	
 	Connection conn;
 	
-	@FXML private TextField fournisseur;
-	@FXML private TextField year;
-	@FXML private TextField numberCommand;
-	@FXML private TextField lateness;
-	@FXML private TextField goodParts;
-	@FXML private TextField badParts;
-		
 	// CONSTRUCTOR
 	
 	public PageLogisticienController(){
@@ -50,25 +42,5 @@ public class PageLogisticienController {
 	@FXML
 	private void buttonSendDatas(ActionEvent event){
 		System.out.println("button sendDatas clicked");
-		
-		// INSERT THE DATAS INTO THE DATABASE
-		String fournisseur = null;
-		String year = null;
-		String numberCommand = null;
-		String lateness = null;
-		String goodParts = null;
-		String badParts = null;
-		
-		// READ THE INPUT DATAS
-		
-		fournisseur = this.fournisseur.getText();
-		year = this.year.getText();
-		numberCommand = this.numberCommand.getText();
-		lateness = this.lateness.getText();
-		goodParts = this.goodParts.getText();
-		badParts = this.badParts.getText();
-		
-		System.out.println(fournisseur + year + numberCommand + lateness + goodParts + badParts);
-		
 	}
 }

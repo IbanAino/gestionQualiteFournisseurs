@@ -17,7 +17,7 @@ public class PageLogisticienController {
 	
 	@FXML private TextField fournisseur;
 	@FXML private TextField year;
-	@FXML private TextField numberCommand;
+	@FXML private TextField numbreCommand;
 	@FXML private TextField lateness;
 	@FXML private TextField goodParts;
 	@FXML private TextField badParts;
@@ -58,17 +58,5 @@ public class PageLogisticienController {
 		String lateness = null;
 		String goodParts = null;
 		String badParts = null;
-		
-		// READ THE INPUT DATAS
-		
-		fournisseur = this.fournisseur.getText();
-		year = this.year.getText();
-		numberCommand = this.numberCommand.getText();
-		lateness = this.lateness.getText();
-		goodParts = this.goodParts.getText();
-		badParts = this.badParts.getText();
-		
-		System.out.println(fournisseur + year + numberCommand + lateness + goodParts + badParts);
-		
 	}
 }
