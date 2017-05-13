@@ -20,34 +20,12 @@ public class MainClass extends Application{
 	public static void main(String[] args) {
 		System.out.println("Software launched");
 		
-		/*
-		// CONNECTION TO THE DATABASE
-		
-		try{
-		      Class.forName("com.mysql.jdbc.Driver").newInstance(); // load the driver
-		      
-		      String url = "jdbc:mysql://localhost/logiciel_conformite";
-		      String user = "root";
-		      String passwd = "";
-		      
-		      Connection conn = (Connection) DriverManager.getConnection(url, user, passwd); // connection
-		      
-		      System.out.println("connection from database OK");		      
-		}
-	    catch (ClassNotFoundException ex) {System.err.println(ex.getMessage());}
-	    catch (IllegalAccessException ex) {System.err.println(ex.getMessage());}
-	    catch (InstantiationException ex) {System.err.println(ex.getMessage());}
-	    catch (SQLException ex)			  {System.err.println(ex.getMessage());}
-		*/
-		
 		launch(args); // call the start function
 	}
-	
 	
 	// LAUNCH THE FIRST WINDOW
 	
 	public void start(Stage primaryStage) {
-		// Charger le fichier XML, en capturant une erreur si ça ne marche pas.
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("/PageConnexion/PageConnexion.fxml"));
 			Scene scene = new Scene(root, 800, 600, Color.BLACK);

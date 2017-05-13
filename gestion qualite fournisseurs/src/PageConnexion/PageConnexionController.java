@@ -1,5 +1,6 @@
 package PageConnexion;
 
+import java.io.IOException;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,8 +11,13 @@ import com.mysql.jdbc.ResultSetMetaData;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 
 public class PageConnexionController {
 	
@@ -48,8 +54,7 @@ public class PageConnexionController {
 	private void buttonConnection(ActionEvent event){
 		System.out.println("buttonConnexion clicked");
 		
-		// variables
-		
+		// variables		
 		String databaseName = null;
 		String inputName = null;
 		String databasePassWord = null;
@@ -69,11 +74,11 @@ public class PageConnexionController {
 		    ResultSet result = state.executeQuery("SELECT nom FROM employe");// L'objet ResultSet contient le résultat de la requête SQL
 			    while (result.next())
 			    {
+			    	// COMPARE INPUT DATAS WITH THE DATABASE DATAS
+			    	
 			    	databaseName = result.getString("nom");
-			    	System.out.println("databaseName = " + databaseName);
-			    	
-					// COMPARE INPUT DATAS WITH THE DATABASE DATAS
-			    	
+			    	System.out.println("databaseName = " + databaseName);			    	
+								    	
 			    	if(databaseName.equals(inputName)){
 			    		System.out.println("name saved into the database");
 			    		
@@ -94,7 +99,28 @@ public class PageConnexionController {
 			    			System.out.println("Password correct");
 			    			
 			    			// LAUNCH THE NEXT WINDOWS
-			    			
+			    			try {
+			    				Parent root = FXMLLoader.load(getClass().getResource("/PageLogisticien/logisticien.fxml"));
+			    				Scene scene = new Scene(root, 800, 600, Color.BLACK);
+			    				Stage primaryStage = new Stage();
+			    				primaryStage.setScene(scene);
+			    				primaryStage.sizeToScene();
+			    				primaryStage.show();
+			    				
+			    				
+			    				
+			    			    result.close();
+			    			    state.close();
+			    			    
+			    			    System.out.println("database closed");
+			    				System.out.println("second window SUCCESS");
+			    				
+			    			} catch (IOException e) {
+			    				// TODO Auto-generated catch block
+			    				e.printStackTrace();
+			    				
+			    				System.out.println("second window ERROR");
+			    			}
 			    			
 			    		}else{
 			    			System.out.println("Wrong password");
@@ -109,7 +135,8 @@ public class PageConnexionController {
 		}
 		catch (SQLException ex) {System.err.println(ex.getMessage());}
 	}
-	
-	// DISCONNECT FROM THE DATABASE WHEN THE WINDOW CLOSED
-
 }
+
+
+
+
