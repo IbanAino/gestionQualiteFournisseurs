@@ -78,14 +78,14 @@ public class PageLogisticienController {
 		}else{
 			// INSERT DATAS INTO THE DATABASE
 			Statement state = conn.createStatement();
-			//state.executeUpdate("INSERT INTO qualite (numeroCommande) VALUES ('c03')");
+			//state.executeQuery("INSERT INTO qualite (numeroCommande) VALUES ('c03')");
 			//state.executeQuery("");
 			//ResultSet result = state.executeQuery("SELECT * FROM qualite");
-			//state.executeQuery("SELECT * FROM qualite");
-			
-			state.executeUpdate("INSERT INTO qualite (numeroCommande, fournisseur, annee, piecesConformes, piecesNonConformes, joursRetard)"
+			state.executeQuery("SELECT * FROM qualite");
+			/*
+			state.executeQuery("INSERT INTO qualite (numeroCommande, fournisseur, annee, piecesConformes, piecesNonConformes, joursRetard)"
 					+ "VALUES(" + numberCommand + ',' + fournisseur + ',' + year + ',' + goodParts + ',' + badParts + ',' + lateness + ')');
-		
+		*/
 		}
 		
 	}

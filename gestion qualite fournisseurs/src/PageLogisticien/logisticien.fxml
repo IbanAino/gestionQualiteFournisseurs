@@ -12,8 +12,8 @@
       <Label layoutX="254.0" layoutY="164.0" text="année" />
       <Label layoutX="97.0" layoutY="84.0" text="numéro du bon de commande" />
       <Label layoutX="191.0" layoutY="205.0" text="retard (en jours)" />
-      <Label layoutX="179.0" layoutY="246.0" text="pièces conformes" />
-      <Label layoutX="154.0" layoutY="288.0" text="pièces non conformes" />
+      <Label layoutX="179.0" layoutY="246.0" text="nombre de pièces conformes" />
+      <Label layoutX="154.0" layoutY="288.0" text="nombre de pièces non conformes" />
       <TextField fx:id="fournisseur" layoutX="327.0" layoutY="79.0" />
       <TextField fx:id="year" layoutX="327.0" layoutY="118.0" />
       <TextField fx:id="numberCommand" layoutX="327.0" layoutY="241.0" />

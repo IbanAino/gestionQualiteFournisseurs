@@ -1,7 +1,6 @@
 package PageLogisticien;
 
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -78,14 +77,10 @@ public class PageLogisticienController {
 		}else{
 			// INSERT DATAS INTO THE DATABASE
 			Statement state = conn.createStatement();
-			//state.executeUpdate("INSERT INTO qualite (numeroCommande) VALUES ('c03')");
-			//state.executeQuery("");
-			//ResultSet result = state.executeQuery("SELECT * FROM qualite");
-			//state.executeQuery("SELECT * FROM qualite");
-			
-			state.executeUpdate("INSERT INTO qualite (numeroCommande, fournisseur, annee, piecesConformes, piecesNonConformes, joursRetard)"
+			/*
+			state.executeQuery("INSERT INTO qualite (numeroCommande, fournisseur, annee, piecesConformes, piecesNonConformes, joursRetard)"
 					+ "VALUES(" + numberCommand + ',' + fournisseur + ',' + year + ',' + goodParts + ',' + badParts + ',' + lateness + ')');
-		
+		*/
 		}
 		
 	}

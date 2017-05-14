@@ -31,7 +31,8 @@ public class PageConnexionController {
 		System.out.println("PageConnexionController constructor called");
 		
 		// CONNECTION TO THE DATABASE
-				try{
+		
+		try{
 		      Class.forName("com.mysql.jdbc.Driver").newInstance(); // load the driver
 		      
 		      String url = "jdbc:mysql://localhost/logiciel_conformite";
@@ -60,12 +61,14 @@ public class PageConnexionController {
 		String inputPassWord = null;
 		
 		// READ THE INPUT DATAS
-				inputName = name.getText();
+		
+		inputName = name.getText();
 		System.out.println("inputName = " + inputName);
 		
 		
 		// ASK THE DATABASE
-				try{
+		
+		try{
 			Statement state = conn.createStatement();
 
 		    ResultSet result = state.executeQuery("SELECT nom FROM employe");// L'objet ResultSet contient le résultat de la requête SQL
