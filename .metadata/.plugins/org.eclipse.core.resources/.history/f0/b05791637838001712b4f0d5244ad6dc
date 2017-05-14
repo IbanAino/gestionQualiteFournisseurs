@@ -79,7 +79,8 @@ public class PageLogisticienController {
 			// INSERT DATAS INTO THE DATABASE
 			Statement state = conn.createStatement();
 			
-			state.executeUpdate("INSERT INTO qualite (numeroCommande, fournisseur, annee, piecesConformes, piecesNonConformes, joursRetard) VALUES ('" + numberCommand + "','" + fournisseur + "'," + year + ",'" + goodParts + "','" + badParts + "','" + lateness + "')");
+			state.executeUpdate("INSERT INTO qualite (numeroCommande, fournisseur, annee, piecesConformes, piecesNonConformes, joursRetard)"
+					+ " VALUES ('" + numberCommand + "'," + fournisseur + ',' + year + ',' + goodParts + ',' + badParts + ',' + lateness + ')');
 		
 		}
 		

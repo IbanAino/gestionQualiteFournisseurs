@@ -5,21 +5,20 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane fx:controller="PageLogisticien.PageLogisticienController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="441.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="441.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PageLogisticien.PageLogisticienController">
    <children>
+      <Label layoutX="97.0" layoutY="84.0" text="numéro du bon de commande" />
       <Label layoutX="221.0" layoutY="123.0" text="fournisseur" />
       <Label layoutX="254.0" layoutY="164.0" text="année" />
-      <Label layoutX="97.0" layoutY="84.0" text="numéro du bon de commande" />
       <Label layoutX="191.0" layoutY="205.0" text="retard (en jours)" />
-      <Label layoutX="179.0" layoutY="246.0" text="nombre de pièces conformes" />
-      <Label layoutX="154.0" layoutY="288.0" text="nombre de pièces non conformes" />
-      <TextField fx:id="fournisseur" layoutX="327.0" layoutY="79.0" />
-      <TextField fx:id="year" layoutX="327.0" layoutY="118.0" />
-      <TextField fx:id="numberCommand" layoutX="327.0" layoutY="241.0" />
+      <Label layoutX="107.0" layoutY="246.0" text="nombre de pièces conformes" />
+      <Label layoutX="80.0" layoutY="288.0" text="nombre de pièces non conformes" />
+      <TextField fx:id="numberCommand" layoutX="327.0" layoutY="79.0" />
+      <TextField fx:id="fournisseur" layoutX="327.0" layoutY="118.0" />
+      <TextField fx:id="year" layoutX="327.0" layoutY="159.0" />
       <TextField fx:id="lateness" layoutX="327.0" layoutY="200.0" />
-      <TextField fx:id="goodParts" layoutX="327.0" layoutY="159.0" />
+      <TextField fx:id="goodParts" layoutX="327.0" layoutY="241.0" />
       <TextField fx:id="badParts" layoutX="327.0" layoutY="283.0" />
-      <Button onAction="#buttonSendDatas" layoutX="312.0" layoutY="363.0" mnemonicParsing="false" text="enregistrer les informations" />
+      <Button layoutX="312.0" layoutY="363.0" mnemonicParsing="false" onAction="#buttonSendDatas" text="enregistrer les informations" />
    </children>
 </AnchorPane>

@@ -54,7 +54,6 @@ public class PageLogisticienController {
 		System.out.println("button sendDatas clicked");
 		
 		// INSERT THE DATAS INTO THE DATABASE
-		
 		String fournisseur = null;
 		String year = null;
 		String numberCommand = null;
@@ -63,6 +62,7 @@ public class PageLogisticienController {
 		String badParts = null;
 		
 		// READ THE INPUT DATAS
+		
 		fournisseur = this.fournisseur.getText();
 		year = this.year.getText();
 		numberCommand = this.numberCommand.getText();
@@ -78,8 +78,13 @@ public class PageLogisticienController {
 		}else{
 			// INSERT DATAS INTO THE DATABASE
 			Statement state = conn.createStatement();
+			//state.executeUpdate("INSERT INTO qualite (numeroCommande) VALUES ('c03')");
+			//state.executeQuery("");
+			//ResultSet result = state.executeQuery("SELECT * FROM qualite");
+			//state.executeQuery("SELECT * FROM qualite");
 			
-			state.executeUpdate("INSERT INTO qualite (numeroCommande, fournisseur, annee, piecesConformes, piecesNonConformes, joursRetard) VALUES ('" + numberCommand + "','" + fournisseur + "'," + year + ",'" + goodParts + "','" + badParts + "','" + lateness + "')");
+			state.executeUpdate("INSERT INTO qualite (numeroCommande, fournisseur, annee, piecesConformes, piecesNonConformes, joursRetard)"
+					+ "VALUES(" + numberCommand + ',' + fournisseur + ',' + year + ',' + goodParts + ',' + badParts + ',' + lateness + ')');
 		
 		}
 		
