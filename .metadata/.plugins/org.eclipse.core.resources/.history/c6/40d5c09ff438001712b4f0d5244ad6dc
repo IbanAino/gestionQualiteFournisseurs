@@ -5,21 +5,20 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
+import java.util.LinkedList;
+import java.util.List;
 
 import com.mysql.jdbc.Connection;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
 
 public class PageStatisticienController {
 	
 	// ATTRIBUTS
 	Connection conn;
 	@FXML private TextField year;
-	@FXML private Text computedDatas;
 	
 	//CONSTRUCTOR
 	public PageStatisticienController(){
@@ -50,7 +49,7 @@ public class PageStatisticienController {
 		// variables
 		ArrayList<String> fournisseursList = new ArrayList<String>();
 		ArrayList<Integer> latenessList = new ArrayList<Integer>();
-		ArrayList<Float> ratioNCList = new ArrayList<Float>();
+		ArrayList<Integer> ratioNCList = new ArrayList<Integer>();
 		
 		// READ THE YEAR TO MAKE THE STATISTICS
 		String year = this.year.getText();
@@ -59,7 +58,7 @@ public class PageStatisticienController {
 		Statement state = conn.createStatement();
 		ResultSet result = state.executeQuery("SELECT fournisseur FROM qualite");
 		
-		// MAKE A LIST OF FOURNISSEURS
+		// SELECT ALL THE FOURNISSEURS INTO A LIST
 		while (result.next()){
 
 			String fournisseur = result.getString("fournisseur");
@@ -99,8 +98,8 @@ public class PageStatisticienController {
 		// COMPUTE NON CONFORMS PARTS RATIO
 		for(int i = 0; i < fournisseursList.size(); i++){
 			//variables
-			float goodParts = 0;
-			float badParts = 0;
+			int goodParts = 0;
+			int badParts = 0;
 			//check the number of good parts
 			result = state.executeQuery("SELECT piecesConformes FROM qualite WHERE fournisseur = '" + fournisseursList.get(i) + "'");
 			while (result.next()){
@@ -115,14 +114,5 @@ public class PageStatisticienController {
 			ratioNCList.add((badParts / (goodParts + badParts)) * 100);
 			System.out.println(fournisseursList.get(i) + " NC ratio : " + ratioNCList.get(i));
 		}
-		
-		// PRINT THE DATAS INTO THE INTERFACE
-		String datasToPrint = "";
-		
-		for(int i = 0; i < fournisseursList.size(); i++){
-			datasToPrint += fournisseursList.get(i) + " : moyenne de jours de retard : " + latenessList.get(i) + " taux de pièces non conformes : " + ratioNCList.get(i) + "\n";
-		}
-		
-		computedDatas.setText(datasToPrint);
 	}
 }

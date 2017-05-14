@@ -117,10 +117,10 @@ public class PageStatisticienController {
 		}
 		
 		// PRINT THE DATAS INTO THE INTERFACE
-		String datasToPrint = "";
+		String datasToPrint;
 		
 		for(int i = 0; i < fournisseursList.size(); i++){
-			datasToPrint += fournisseursList.get(i) + " : moyenne de jours de retard : " + latenessList.get(i) + " taux de pièces non conformes : " + ratioNCList.get(i) + "\n";
+			datasToPrint += fournisseursList.get(i) + " moyenne de jours de retard : " + latenessList.get(i) + " taux de pièces non conformes" + ratioNCList.get(i) + "\n";
 		}
 		
 		computedDatas.setText(datasToPrint);
