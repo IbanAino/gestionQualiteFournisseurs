@@ -85,17 +85,13 @@ public class PageStatisticienController {
 		for(int i = 0; i < fournisseursList.size(); i++){
 			int latenessCounter = 0;
 			result = state.executeQuery("SELECT joursRetard FROM qualite WHERE fournisseur = '" + fournisseursList.get(i) + "'");
-			int rowCounter = 0;
 			while (result.next()){
 				latenessCounter += result.getInt("joursRetard");
-				rowCounter++;
 			}
-			latenessList.add(latenessCounter/rowCounter);
-			System.out.println(fournisseursList.get(i) + " cumul of lateness : " + latenessCounter);
-			System.out.println(fournisseursList.get(i) + " moyenne of lateness : " + latenessList.get(i));
+			//latenessList[i] = latenessCounter;
+			System.out.println(fournisseursList.get(i) + " lateness : " + latenessCounter);
+			//System.out.println(latenessList[i]);
 		}
-		
-		// COMPUTE NON CONFORMS
 
 	}
 }

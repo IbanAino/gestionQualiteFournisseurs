@@ -91,11 +91,9 @@ public class PageStatisticienController {
 				rowCounter++;
 			}
 			latenessList.add(latenessCounter/rowCounter);
-			System.out.println(fournisseursList.get(i) + " cumul of lateness : " + latenessCounter);
-			System.out.println(fournisseursList.get(i) + " moyenne of lateness : " + latenessList.get(i));
+			System.out.println(fournisseursList.get(i) + " lateness : " + latenessCounter);
+			System.out.println(latenessList.get(i));
 		}
-		
-		// COMPUTE NON CONFORMS
 
 	}
 }

@@ -5,8 +5,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
 
 import com.mysql.jdbc.Connection;
 
@@ -46,11 +44,6 @@ public class PageStatisticienController {
 	private void buttonComputeStats(ActionEvent event) throws SQLException{
 		System.out.println("Button start compute clicked.");
 		
-		// variables
-		ArrayList<String> fournisseursList = new ArrayList<String>();
-		ArrayList<Integer> latenessList = new ArrayList<Integer>();
-		ArrayList<Integer> rationNCList = new ArrayList<Integer>();
-		
 		// READ THE YEAR TO MAKE THE STATISTICS
 		String year = this.year.getText();
 		
@@ -58,7 +51,9 @@ public class PageStatisticienController {
 		Statement state = conn.createStatement();
 		ResultSet result = state.executeQuery("SELECT fournisseur FROM qualite");
 		
-		// SELECT ALL THE FOURNISSEURS INTO A LIST
+		// SELECT ALL TH EFOURNISSEURS INTO A LIST
+		ArrayList<String> fournisseursList = new ArrayList<String>();
+		
 		while (result.next()){
 
 			String fournisseur = result.getString("fournisseur");
@@ -74,28 +69,9 @@ public class PageStatisticienController {
 			}
 			//System.out.println(fournisseur);	
 		}
-		 // println the fournisseurs
+		 // printn the fournisseurs
 		for(int i = 0; i < fournisseursList.size(); i++){
 			System.out.println(fournisseursList.get(i));
 		}
-		
-		// list of fournisseurs done
-		
-		// COMPUTE LATENESS
-		for(int i = 0; i < fournisseursList.size(); i++){
-			int latenessCounter = 0;
-			result = state.executeQuery("SELECT joursRetard FROM qualite WHERE fournisseur = '" + fournisseursList.get(i) + "'");
-			int rowCounter = 0;
-			while (result.next()){
-				latenessCounter += result.getInt("joursRetard");
-				rowCounter++;
-			}
-			latenessList.add(latenessCounter/rowCounter);
-			System.out.println(fournisseursList.get(i) + " cumul of lateness : " + latenessCounter);
-			System.out.println(fournisseursList.get(i) + " moyenne of lateness : " + latenessList.get(i));
-		}
-		
-		// COMPUTE NON CONFORMS
-
 	}
 }
