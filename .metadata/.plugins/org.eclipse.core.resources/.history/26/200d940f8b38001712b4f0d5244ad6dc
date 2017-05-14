@@ -39,6 +39,6 @@ public class PageStatisticienController {
 	
 	@FXML
 	private void buttonComputeStats(ActionEvent event){
-		System.out.println("Button compute stats clicked.");
+		
 	}
 }

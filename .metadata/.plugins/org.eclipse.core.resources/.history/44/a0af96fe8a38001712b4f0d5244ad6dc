@@ -5,7 +5,6 @@ import java.sql.SQLException;
 
 import com.mysql.jdbc.Connection;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
@@ -13,7 +12,7 @@ public class PageStatisticienController {
 	
 	// ATTRIBUTS
 	Connection conn;
-	@FXML private TextField year;
+	@FXML private TextField fournisseur;
 	
 	//CONSTRUCTOR
 	public PageStatisticienController(){
@@ -35,10 +34,5 @@ public class PageStatisticienController {
 		catch (IllegalAccessException ex) {System.err.println(ex.getMessage());}
 		catch (InstantiationException ex) {System.err.println(ex.getMessage());}
 		catch (SQLException ex)	{System.err.println(ex.getMessage());}		
-	}
-	
-	@FXML
-	private void buttonComputeStats(ActionEvent event){
-		System.out.println("Button compute stats clicked.");
 	}
 }

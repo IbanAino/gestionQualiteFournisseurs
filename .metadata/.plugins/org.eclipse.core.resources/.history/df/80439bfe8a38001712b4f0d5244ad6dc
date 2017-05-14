@@ -14,7 +14,9 @@ import javafx.scene.control.TextField;
 public class PageLogisticienController {
 	
 	// ATTRIBUTS
+	
 	Connection conn;
+	
 	@FXML private TextField fournisseur;
 	@FXML private TextField year;
 	@FXML private TextField numberCommand;
@@ -27,7 +29,8 @@ public class PageLogisticienController {
 		System.out.println("Logisticien page launched.");
 		
 		// CONNECTION TO THE DATABASE
-			try{
+		
+		try{
 		    Class.forName("com.mysql.jdbc.Driver").newInstance(); // load the driver
 		      
 		    String url = "jdbc:mysql://localhost/logiciel_conformite";
