@@ -55,6 +55,7 @@ public class PageStatisticienController {
 		
 		while (result.next()){
 			
+			//fournisseursList.add("lalz");
 			String fournisseur = result.getString("fournisseur");
 			
 			boolean saveTheFournisseur = true;
@@ -68,10 +69,6 @@ public class PageStatisticienController {
 				fournisseursList.add(fournisseur);
 			}
 			//System.out.println(fournisseur);	
-		}
-		 // printn the fournisseurs
-		for(int i = 0; i < fournisseursList.size(); i++){
-			System.out.println(fournisseursList.get(i));
 		}
 	}
 }

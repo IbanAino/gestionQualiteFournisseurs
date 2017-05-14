@@ -70,8 +70,8 @@ public class PageConnexionController {
 			Statement state = conn.createStatement();
 
 		    ResultSet result = state.executeQuery("SELECT nom FROM employe");// L'objet ResultSet contient le résultat de la requête SQL
-			
-		    while (result.next()){
+			    while (result.next())
+			    {
 			    	// COMPARE INPUT DATAS WITH THE DATABASE DATAS
 			    	
 			    	databaseName = result.getString("nom");

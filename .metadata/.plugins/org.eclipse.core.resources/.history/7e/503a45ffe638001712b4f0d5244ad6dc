@@ -4,7 +4,6 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 
 import com.mysql.jdbc.Connection;
 
@@ -49,29 +48,11 @@ public class PageStatisticienController {
 		
 		// FIND ALL THE DATAS ABOUT THE YEAR INTO THE DATABASE
 		Statement state = conn.createStatement();
-		ResultSet result = state.executeQuery("SELECT fournisseur FROM qualite");
-				
-		ArrayList<String> fournisseursList = new ArrayList<String>();
+		ResultSet result = state.executeQuery("SELECT fournisseur FROM qualite GROUP BY fournisseur HAVING COUNT(*) > 1");
 		
 		while (result.next()){
-			
 			String fournisseur = result.getString("fournisseur");
-			
-			boolean saveTheFournisseur = true;
-			
-			for(int i = 0; i < fournisseursList.size(); i++){
-				if(fournisseursList.get(i).equals(fournisseur)){
-					saveTheFournisseur = false;
-				}
-			}
-			if(saveTheFournisseur == true){
-				fournisseursList.add(fournisseur);
-			}
-			//System.out.println(fournisseur);	
-		}
-		 // printn the fournisseurs
-		for(int i = 0; i < fournisseursList.size(); i++){
-			System.out.println(fournisseursList.get(i));
+			System.out.println(fournisseur);	
 		}
 	}
 }
