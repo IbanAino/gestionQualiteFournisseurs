@@ -25,7 +25,8 @@ public class PageLogisticienController {
 	@FXML private TextField badParts;
 		
 	// CONSTRUCTOR
-		public PageLogisticienController(){
+	
+	public PageLogisticienController(){
 		System.out.println("Logisticien page launched.");
 		
 		// CONNECTION TO THE DATABASE
@@ -53,7 +54,8 @@ public class PageLogisticienController {
 		System.out.println("button sendDatas clicked");
 		
 		// INSERT THE DATAS INTO THE DATABASE
-				String fournisseur = null;
+		
+		String fournisseur = null;
 		String year = null;
 		String numberCommand = null;
 		String lateness = null;
@@ -78,6 +80,8 @@ public class PageLogisticienController {
 			Statement state = conn.createStatement();
 			
 			state.executeUpdate("INSERT INTO qualite (numeroCommande, fournisseur, annee, piecesConformes, piecesNonConformes, joursRetard) VALUES ('" + numberCommand + "','" + fournisseur + "'," + year + ",'" + goodParts + "','" + badParts + "','" + lateness + "')");
-		}		
+		
+		}
+		
 	}
 }

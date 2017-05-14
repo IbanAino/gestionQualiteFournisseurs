@@ -66,7 +66,7 @@ public class PageConnexionController {
 		
 		
 		// ASK THE DATABASE
-			try{
+				try{
 			Statement state = conn.createStatement();
 
 		    ResultSet result = state.executeQuery("SELECT nom FROM employe");// L'objet ResultSet contient le résultat de la requête SQL
@@ -100,54 +100,32 @@ public class PageConnexionController {
 			    			result = state.executeQuery("SELECT statut FROM employe WHERE nom = '" + databaseName + "'");
 			    			result.next();
 			    			statut = result.getString("statut");
-			    			System.out.println("Statut : " + statut);
+			    			System.out.println(statut);
 			    			
-			    			if(statut.equals("logisticien")){ // the employee is an logisticien
-				    			// LAUNCH THE LOGISTICIEN WINDOWS
-				    			try {
-				    				Parent root = FXMLLoader.load(getClass().getResource("/PageLogisticien/logisticien.fxml"));
-				    				Scene scene = new Scene(root, 800, 600, Color.BLACK);
-				    				Stage primaryStage = new Stage();
-				    				primaryStage.setScene(scene);
-				    				primaryStage.sizeToScene();
-				    				primaryStage.show();				    								    				
-				    				
-				    			    result.close();
-				    			    state.close();
-				    			    
-				    			    System.out.println("database closed");
-				    				System.out.println("second window SUCCESS");
-				    				
-				    			} catch (IOException e) {
-				    				// TODO Auto-generated catch block
-				    				e.printStackTrace();
-				    				System.out.println("second window ERROR");
-				    			}
-				    			
-			    			}else{ // the employee ins an statisticien
-				    			// LAUNCH THE STATISTICIEN WINDOWS
-				    			try {
-				    				Parent root = FXMLLoader.load(getClass().getResource("/Statisticien/PageStatisticien.fxml"));
-				    				Scene scene = new Scene(root, 800, 600, Color.BLACK);
-				    				Stage primaryStage = new Stage();
-				    				primaryStage.setScene(scene);
-				    				primaryStage.sizeToScene();
-				    				primaryStage.show();				    					    				
-				    				
-				    			    result.close();
-				    			    state.close();
-				    			    
-				    			    System.out.println("database closed");
-				    				System.out.println("second window SUCCESS");
-				    				
-				    			} catch (IOException e) {
-				    				// TODO Auto-generated catch block
-				    				e.printStackTrace();
-				    				System.out.println("second window ERROR");
-				    			}
+			    			// LAUNCH THE NEXT WINDOWS
+			    			try {
+			    				Parent root = FXMLLoader.load(getClass().getResource("/PageLogisticien/logisticien.fxml"));
+			    				Scene scene = new Scene(root, 800, 600, Color.BLACK);
+			    				Stage primaryStage = new Stage();
+			    				primaryStage.setScene(scene);
+			    				primaryStage.sizeToScene();
+			    				primaryStage.show();
+			    				
+			    				
+			    				
+			    			    result.close();
+			    			    state.close();
+			    			    
+			    			    System.out.println("database closed");
+			    				System.out.println("second window SUCCESS");
+			    				
+			    			} catch (IOException e) {
+			    				// TODO Auto-generated catch block
+			    				e.printStackTrace();
+			    				
+			    				System.out.println("second window ERROR");
 			    			}
-
-			    		// else : called when the password isn't good	
+			    			
 			    		}else{
 			    			System.out.println("Wrong password");
 			    		}
@@ -155,7 +133,8 @@ public class PageConnexionController {
 			    		break;// exit the while loop
 			    	}else{
 			    		System.out.println("name not saved");
-			    	}			    	
+			    	}
+			    	
 			    }		
 		}
 		catch (SQLException ex) {System.err.println(ex.getMessage());}

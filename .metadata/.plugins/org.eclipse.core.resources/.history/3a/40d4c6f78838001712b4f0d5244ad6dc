@@ -127,7 +127,7 @@ public class PageConnexionController {
 			    			}else{ // the employee ins an statisticien
 				    			// LAUNCH THE STATISTICIEN WINDOWS
 				    			try {
-				    				Parent root = FXMLLoader.load(getClass().getResource("/Statisticien/PageStatisticien.fxml"));
+				    				Parent root = FXMLLoader.load(getClass().getResource("/PageStatisticein/PageStatisticien.fxml"));
 				    				Scene scene = new Scene(root, 800, 600, Color.BLACK);
 				    				Stage primaryStage = new Stage();
 				    				primaryStage.setScene(scene);
